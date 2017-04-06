@@ -79,6 +79,15 @@ jQuery(function($) {
     });
 
 });
+function clicked(e)
+{
+    alert('this form isnt setup yet to send e-mail')
+}
+
+function submitted()
+{
+  alert('you submited this')
+}
 
 var map = '';
 
