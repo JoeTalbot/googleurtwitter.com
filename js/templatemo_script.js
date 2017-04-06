@@ -64,13 +64,14 @@ jQuery(function($) {
                     $(name+"-text").animate({left:'0px'},400,function(){
                         $(this).addClass("active");
 
+                        var currCenter = map.getCenter();
                         google.maps.event.trigger(map, 'resize'); // resize map
+                        map.setCenter(currCenter);
                         $.backstretch("resize"); // resize the background image
 
                         menuDisabled = false; // enable the menu
                     });
                 });
-
             }
             return;
 	});
@@ -88,11 +89,13 @@ function initialize() {
       center: myLatLng
     };
     map = new google.maps.Map(document.getElementById('map-canvas'),  mapOptions);
+    var currCenter = map.getCenter();
     var marker = new google.maps.Marker({
           position: myLatLng,
           map: map,
           title: 'Nowthen Threshing Show Grounds'
         });
+    map.setCenter(currCenter);
 }
 
 function loadGoogleMap(){
